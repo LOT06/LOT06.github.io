@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <div id="root"></div>
+	<div id="welcome-message">Welcome to the watsonx Orchestrate Level 3 Demo</div>
+	<div id="arrow">⬇️</div>
 <script>
   window.wxOConfiguration = {
     clientVersion: "latest",
