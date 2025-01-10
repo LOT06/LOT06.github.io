@@ -10,21 +10,17 @@
 </head>
 
 <script>
-  window.wxOConfiguration = {
-    clientVersion: "latest",
-    orchestrationID: "a5970dd2-eb96-4b34-8aaf-1eafd075d02e",
-    hostUrl: "https://dl.watson-orchestrate.ibm.com",
-    rootElementId: "root",
-    // token: "<CLIENT_JWT_GOES_HERE>"
+  window.watsonAssistantChatOptions = {
+    integrationID: "9b8564a9-9dad-4a45-aef1-e0df55b9e165", // The ID of this integration.
+    region: "aws-us-east-1", // The region your integration is hosted in.
+    serviceInstanceID: "20240201-1640-0529-1052-568aeb82c85a", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
   };
-  setTimeout(function () {
-    const script = document.createElement('script');
-    script.src = `${window.wxOConfiguration.hostUrl}/webclient/wxoLoader.js`;
-    script.addEventListener('load', function () {
-      wxoLoader.init();
-    });
-    document.head.appendChild(script);
-  }, 0);
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
 </script>
 <body>
 </body>
