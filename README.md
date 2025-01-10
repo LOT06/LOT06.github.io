@@ -9,7 +9,7 @@
          alt = "New Watson Assistant Bank" />
 </head>
 
-<body
+<body>
 <script>
   window.wxOConfiguration = {
     clientVersion: "latest",
