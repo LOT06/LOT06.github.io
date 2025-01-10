@@ -8,18 +8,23 @@
     	width="auto" height="800"
          alt = "New Watson Assistant Bank" />
 </head>
+
 <script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "b9b49222-ad04-410b-aeca-4f72eaa594a5", // The ID of this integration.
-    region: "aws-us-east-1", // The region your integration is hosted in.
-    serviceInstanceID: "20240227-1525-1134-808e-497d1e4816e6", // The ID of your service instance.
-    onLoad: async (instance) => { await instance.render(); }
+  window.wxOConfiguration = {
+    clientVersion: "latest",
+    orchestrationID: "a5970dd2-eb96-4b34-8aaf-1eafd075d02e",
+    hostUrl: "https://dl.watson-orchestrate.ibm.com",
+    rootElementId: "root",
+    // token: "<CLIENT_JWT_GOES_HERE>"
   };
-  setTimeout(function(){
-    const t=document.createElement('script');
-    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-    document.head.appendChild(t);
-  });
+  setTimeout(function () {
+    const script = document.createElement('script');
+    script.src = `${window.wxOConfiguration.hostUrl}/webclient/wxoLoader.js`;
+    script.addEventListener('load', function () {
+      wxoLoader.init();
+    });
+    document.head.appendChild(script);
+  }, 0);
 </script>
 <body>
 </body>
